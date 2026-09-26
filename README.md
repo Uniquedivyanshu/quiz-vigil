@@ -168,33 +168,57 @@ Results are stored in the backend database and can be viewed from the Teacher da
 quiz-vigil/
 │
 ├── backend/
-│   └── src/
-│       ├── config/
-│       │   └── db.js
-│       │
-│       ├── controllers/
-│       │   ├── attemptController.js
-│       │   ├── quizController.js
-│       │   ├── studentController.js
-│       │   └── userController.js
-│       │
-│       ├── routes/
-│       │   ├── attemptRoutes.js
-│       │   ├── quizRoutes.js
-│       │   ├── studentRoutes.js
-│       │   └── userRoutes.js
-│       │
-│       └── server.js
+│   ├── src/
+│   │   ├── config/
+│   │   │   └── db.js
+│   │   │
+│   │   ├── controllers/
+│   │   │   ├── attemptController.js
+│   │   │   ├── authController.js
+│   │   │   ├── instituteController.js
+│   │   │   ├── quizController.js
+│   │   │   ├── registrationController.js
+│   │   │   ├── studentController.js
+│   │   │   └── userController.js
+│   │   │
+│   │   ├── middleware/
+│   │   │
+│   │   ├── models/
+│   │   │
+│   │   ├── routes/
+│   │   │   ├── attemptRoutes.js
+│   │   │   ├── authRoutes.js
+│   │   │   ├── instituteRoutes.js
+│   │   │   ├── quizRoutes.js
+│   │   │   ├── registrationRoutes.js
+│   │   │   ├── studentRoutes.js
+│   │   │   └── userRoutes.js
+│   │   │
+│   │   ├── services/
+│   │   │
+│   │   └── server.js
+│   │
+│   ├── package.json
+│   └── package-lock.json
 │
 ├── frontend/
 │   ├── src/
-│   │   ├── components/
 │   │   ├── pages/
+│   │   │   ├── FounderDashboard.jsx
+│   │   │   ├── InstituteAdminDashboard.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── StudentDashboard.jsx
+│   │   │   └── TeacherDashboard.jsx
+│   │   │
+│   │   ├── App.css
 │   │   ├── App.jsx
 │   │   └── main.jsx
 │   │
-│   ├── public/
-│   └── package.json
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   └── vite.config.js
 │
 ├── .gitignore
 └── README.md
