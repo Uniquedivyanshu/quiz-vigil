@@ -197,3 +197,258 @@ quiz-vigil/
 ├── .gitignore
 ├── package.json
 └── README.md
+---
+
+## Database
+
+QuizVigil uses PostgreSQL through Neon.
+
+The database stores information related to:
+
+- Users
+- Students
+- Teachers
+- Questions
+- Quizzes
+- Quiz-question mappings
+- Attempts
+- Answers
+- Results
+- Anti-cheat activity
+- Institute information
+
+The application uses institute codes to keep institute-specific data separated.
+
+---
+
+## Backend API
+
+The backend provides REST API endpoints for the main application functionality.
+
+Examples:
+
+```text
+GET    /api/health
+GET    /api/students
+GET    /api/users
+PATCH  /api/users/:id/status
+GET    /api/quizzes
+POST   /api/quizzes
+POST   /api/quizzes/:id/start
+POST   /api/quizzes/:id/stop
+DELETE /api/quizzes/:id
+POST   /api/attempts/start
+POST   /api/attempts/:id/answers
+POST   /api/attempts/:id/submit
+GET    /api/attempts/results
+
+The exact available routes may change as the project develops.
+
+---
+
+## Database Connection Check
+
+QuizVigil provides a health endpoint:
+
+GET /api/health
+
+A successful response confirms that the API server and PostgreSQL database are connected.
+
+Example:
+
+{
+  "success": true,
+  "message": "QuizVigil API and PostgreSQL database are connected",
+  "database": "connected"
+}
+
+---
+
+## Local Development
+
+1. Clone the repository
+
+git clone https://github.com/<YOUR-GITHUB-USERNAME>/quiz-vigil.git
+cd quiz-vigil
+
+2. Install dependencies
+
+For the frontend:
+
+npm install
+
+For the backend:
+
+cd backend
+npm install
+
+3. Configure environment variables
+
+Create the required environment configuration for the backend.
+
+Example:
+
+DATABASE_URL=your_neon_database_connection_string
+PORT=5000
+
+Do not commit .env files or database credentials to GitHub.
+
+4. Start the backend
+
+cd backend
+npm run dev
+
+5. Start the frontend
+
+From the frontend project directory:
+
+npm run dev
+
+---
+
+## Environment Variables
+
+Sensitive configuration should be stored in environment variables.
+
+Example:
+
+DATABASE_URL=
+PORT=5000
+
+Never publish:
+
+- Database passwords
+- Neon connection strings
+- API secrets
+- Authentication secrets
+- Private credentials 
+
+---
+
+## Security Notes
+
+QuizVigil currently uses institute-based data separation throughout the main application flow.
+
+Teacher and institute-specific operations use identifiers such as:
+
+- Teacher ID
+- Institute Code
+
+The application should continue to be tested and hardened before being used for production-level examinations.
+
+---
+
+## Testing
+
+The following application flows have been tested:
+
+### Founder
+
+- Institute registration
+- Institute listing
+- Institute activation/deactivation
+
+### Institute Admin
+
+- Teacher management
+- Student management
+- Registration approvals
+- User activation/deactivation
+- Institute-wise data
+
+### Teacher
+
+- Question Bank
+- Quiz creation
+- Quiz start
+- Quiz stop
+- Quiz deletion
+- Student listing
+- Result viewing
+- Anti-cheat monitoring
+
+### Student
+
+- Quiz availability
+- Quiz start
+- Question loading
+- Timer
+- Answer saving
+- Quiz submission
+- Result calculation
+- Attempt history
+
+### Backend
+
+- API health check
+- Neon PostgreSQL connection
+- Database-backed student data
+- Database-backed user data
+- Database-backed quiz data
+- Database-backed attempt/result data
+
+---
+
+## GitHub
+
+The project is maintained using Git and GitHub.
+
+The `.gitignore` file prevents unnecessary files such as `node_modules`, `.env`, and build output from being committed.
+
+---
+
+## Project Status
+
+QuizVigil currently contains the main working flow:
+
+```text
+Founder
+   ↓
+Institute Admin
+   ↓
+Teacher
+   ↓
+Question Bank
+   ↓
+Quiz Creation
+   ↓
+Quiz Start / Stop
+   ↓
+Student Attempt
+   ↓
+Timer & Answer Saving
+   ↓
+Anti-Cheat Monitoring
+   ↓
+Quiz Submission
+   ↓
+Result & Score
+
+The core application flow has been integrated with the Neon PostgreSQL backend.
+
+---
+
+## Future Improvements
+
+Possible future improvements include:
+
+- Production deployment
+- Stronger authentication and authorization
+- Additional security hardening
+- Production-level anti-cheat controls
+- Automated testing
+- Performance optimization
+- Backup and recovery strategy
+- Production monitoring
+
+---
+
+## Author
+
+QuizVigil
+
+College Mini Project
+
+Built for educational institute online assessment and internal testing use.
+
+---
