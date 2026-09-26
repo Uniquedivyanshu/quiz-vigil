@@ -186,16 +186,17 @@ quiz-vigil/
 │       │
 │       └── server.js
 │
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── App.jsx
-│   └── main.jsx
-│
-├── public/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   ├── public/
+│   └── package.json
 │
 ├── .gitignore
-├── package.json
 └── README.md
 ---
 
